@@ -22,9 +22,9 @@ import com.facebook.GraphResponse;
 import com.facebook.FacebookAuthorizationException;
 import com.facebook.appevents.AppEventsLogger;
 import com.facebook.applinks.AppLinkData;
+import com.facebook.login.LoginBehavior;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
-import com.facebook.SessionLoginBehavior;
 import com.facebook.share.Sharer;
 import com.facebook.share.model.GameRequestContent;
 import com.facebook.share.model.ShareHashtag;
@@ -583,7 +583,7 @@ public class ConnectPlugin extends CordovaPlugin {
             // Request new publish permissions
             loginManager.logInWithPublishPermissions(cordova.getActivity(), permissions);
         } else {
-            loginManager.setLoginBehavior(SessionLoginBehavior.SUPPRESS_SSO);
+            loginManager.setLoginBehavior(LoginBehavior.WEB_ONLY);
             // Request new read permissions
             loginManager.logInWithReadPermissions(cordova.getActivity(), permissions);
         }
@@ -663,7 +663,7 @@ public class ConnectPlugin extends CordovaPlugin {
             // Set up the activity result callback to this class
             cordova.setActivityResultCallback(this);
 
-            LoginManager.getInstance().setLoginBehavior(SessionLoginBehavior.SUPPRESS_SSO);
+            LoginManager.getInstance().setLoginBehavior(LoginBehavior.WEB_ONLY);
             // Create the request
             LoginManager.getInstance().logInWithReadPermissions(cordova.getActivity(), permissions);
             return;
@@ -705,7 +705,7 @@ public class ConnectPlugin extends CordovaPlugin {
             // Request new publish permissions
             LoginManager.getInstance().logInWithPublishPermissions(cordova.getActivity(), permissions);
         } else {
-            LoginManager.getInstance().setLoginBehavior(SessionLoginBehavior.SUPPRESS_SSO);
+            LoginManager.getInstance().setLoginBehavior(LoginBehavior.WEB_ONLY);
             // Request new read permissions
             LoginManager.getInstance().logInWithReadPermissions(cordova.getActivity(), permissions);
         }
