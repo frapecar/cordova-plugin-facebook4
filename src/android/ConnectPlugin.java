@@ -56,6 +56,7 @@ import java.util.Map;
 import java.util.Set;
 
 public class ConnectPlugin extends CordovaPlugin {
+    console.log("hola")
 
     private static final int INVALID_ERROR_CODE = -2; //-1 is FacebookRequestError.INVALID_ERROR_CODE
     private static final String PUBLISH_PERMISSION_PREFIX = "publish";
